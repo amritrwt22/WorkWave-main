@@ -1,0 +1,90 @@
+# Node.js
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Build output
+dist/
+build/
+out/
+
+# Dependency directories
+/bower_components/
+
+# Environment files
+.env
+.env.* # for multiple environment files (e.g., .env.development, .env.production)
+
+# Logs
+*.log
+
+# System files
+.DS_Store
+Thumbs.db
+
+# IDE/Editor files
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+*.vscode/
+
+# Frontend (React/Angular/Vue.js specific)
+# React
+/.next/
+/build/
+/.cache/
+/public/*.html
+*.css.map
+*.js.map
+
+# Angular
+/.angular/
+/dist/
+/node_modules/
+*.tsbuildinfo
+
+# Vue.js
+/dist/
+
+# Backend (Node.js/Express/Django/Flask specific)
+# Node.js
+npm-debug.log
+*.tsbuildinfo
+.env
+
+# Python (Flask, Django, etc.)
+*.pyc
+*.pyo
+__pycache__/
+*.pdb
+*.log
+*.env
+
+# Django
+/db.sqlite3
+/static/
+*.pot
+*.mo
+
+# Virtualenv (Python environments)
+venv/
+env/
+.venv/
+
+# Database
+*.db
+*.sql
+*.sqlite
+
+# Logs and caches
+*.log
+*.pid
+*.seed
+coverage/
+
+# Others
+*.bak
+*.swp
+*~
