@@ -88,7 +88,7 @@ const login = async (req, res) => {
         expiresIn: "1h",
       }
     );
-    console.log(token);
+
     // res.cookie("__vercel_live_token", token, {
     //   httpOnly: true, // Make the cookie accessible only via HTTP(S), not JavaScript
     //   maxAge: 60 * 60 * 1000, // Set the cookie expiration time (1 hour)

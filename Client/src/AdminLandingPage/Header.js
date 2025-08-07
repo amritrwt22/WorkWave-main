@@ -48,7 +48,7 @@ const Header = () => {
   useEffect(() => {
     // On mount, check if token exists and fetch user info
     const token = getCookie("token");
-    console.log("Token:", token); // Debugging line to check token value
+
     if (token) {
       setIsLoggedIn(true);
       fetchUserInfo();
