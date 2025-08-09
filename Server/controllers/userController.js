@@ -88,16 +88,18 @@ const login = async (req, res) => {
         expiresIn: "1h",
       }
     );
-
-    // res.cookie("__vercel_live_token", token, {
-    //   httpOnly: true, // Make the cookie accessible only via HTTP(S), not JavaScript
-    //   maxAge: 60 * 60 * 1000, // Set the cookie expiration time (1 hour)
-    //   sameSite: "None", // Allow the cookie to be sent in cross-site requests
-    //   secure: true, // Ensure the cookie is only sent over HTTPS
-    // });
-
+    
+    // adding cookie for live preview and local development
+    // this cookie will be used for Vercel live preview
+    res.cookie("__vercel_live_token", token, {
+      httpOnly: true, // Make the cookie accessible only via HTTP(S), not JavaScript
+      maxAge: 60 * 60 * 1000, // Set the cookie expiration time (1 hour)
+      sameSite: "None", // Allow the cookie to be sent in cross-site requests
+      secure: true, // Ensure the cookie is only sent over HTTPS
+    });
+    // this cookie will be used for local development
     res.cookie("token", token, {
-      httpOnly: false, // Make the cookie accessible only via HTTP(S), not JavaScript
+      httpOnly: true, // Make the cookie accessible only via HTTP(S), not JavaScript
       maxAge: 60 * 60 * 1000, // Set the cookie expiration time (1 hour)
       sameSite: "None", // Allow the cookie to be sent in cross-site requests
       secure: true, // Ensure the cookie is only sent over HTTPS
