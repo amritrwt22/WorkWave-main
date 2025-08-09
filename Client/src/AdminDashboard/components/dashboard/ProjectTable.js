@@ -11,7 +11,7 @@ const ProjectTables = ({ businessId }) => {
     const fetchBookings = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3002/business/getBookings`,
+          `https://workwave-backend.onrender.com/business/getBookings`,
           { withCredentials: true }
         );
         setBookings(response.data.bookings);
@@ -35,7 +35,7 @@ const ProjectTables = ({ businessId }) => {
 
       // Make the API call to update the status in the backend
       await axios.post(
-        "http://localhost:3002/booking/updateStatus",
+        "https://workwave-backend.onrender.com/booking/updateStatus",
         {
           bookingId,
           status: newStatus,

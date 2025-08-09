@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE_URL = "http://localhost:3002"; // Replace with your actual API base URL
+const API_BASE_URL = "https://workwave-backend.onrender.com"; // Replace with your actual API base URL
 
 export const fetchBusinessDetails = async (id) => {
   try {

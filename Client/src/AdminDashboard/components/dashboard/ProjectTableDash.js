@@ -23,7 +23,7 @@ const ProjectTables = ({ businessId }) => {
     const fetchBookings = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3002/business/getBookings`,
+          `https://workwave-backend.onrender.com/business/getBookings`,
           { withCredentials: true }
         );
         console.log(response.data);

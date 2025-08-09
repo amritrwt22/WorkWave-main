@@ -236,7 +236,7 @@ const AddBusinessDetails = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:3002/business/addbusiness",
+        "https://workwave-backend.onrender.com/business/addbusiness",
         formDataToSubmit,
         {
           withCredentials: true,

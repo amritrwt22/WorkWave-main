@@ -45,7 +45,7 @@ function Payment() {
     const config = {
       method: "post",
       maxBodyLength: Infinity,
-      url: "http://localhost:3002/orders",
+      url: "https://workwave-backend.onrender.com/orders",
       headers: {
         "Content-Type": "application/json",
       },

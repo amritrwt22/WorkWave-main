@@ -25,7 +25,7 @@ const LoginForm = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:3002/otp/sendOtpAdmin",
+        "https://workwave-backend.onrender.com/otp/sendOtpAdmin",
         { email }
       );
       toast.success("OTP sent successfully!");
@@ -45,7 +45,7 @@ const LoginForm = () => {
 
     try {
       const respo = await axios.post(
-        "http://localhost:3002/admin/login",
+        "https://workwave-backend.onrender.com/admin/login",
         formData,
         { withCredentials: true, credentials: "include" }
       );

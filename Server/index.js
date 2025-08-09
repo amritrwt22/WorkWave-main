@@ -18,7 +18,10 @@ app.use(cookieParser());
 require("dotenv").config();
 app.use(express.json());
 const corsOptions = {
-  origin: "http://localhost:3000", // Replace with your frontend URL
+  origin: [
+    "http://localhost:3000", // Keep for development
+    "https://work-wave-main.vercel.app" // Your deployed frontend
+  ],
   credentials: true,
   allowedHeaders: ["Content-Type", "Authorization"],
 };

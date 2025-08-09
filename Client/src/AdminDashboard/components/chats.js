@@ -15,7 +15,7 @@ const Feeds = () => {
     const fetchNames = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3002/business/getBookings",
+          "https://workwave-backend.onrender.com/business/getBookings",
           {
             withCredentials: true,
           }
@@ -45,7 +45,7 @@ const Feeds = () => {
   const fetchMessages = async (userId) => {
     try {
       const response = await axios.get(
-        `http://localhost:3002/business/getMessages/${userId}`,
+        `https://workwave-backend.onrender.com/business/getMessages/${userId}`,
         {
           withCredentials: true,
         }
@@ -79,7 +79,7 @@ const Feeds = () => {
     // Send message to the backend (assuming there's a POST endpoint to send messages)
     try {
       await axios.post(
-        `http://localhost:3002/business/sendMessage/${selectedUser.id}`,
+        `https://workwave-backend.onrender.com/business/sendMessage/${selectedUser.id}`,
         { message: messageText },
         { withCredentials: true }
       );
