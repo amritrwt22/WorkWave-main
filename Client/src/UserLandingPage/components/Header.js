@@ -5,14 +5,18 @@ import axios from "axios";
 import Cookies from "js-cookie";
 
 const Header = () => {
-  const [scroll, setScroll] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userName, setUserName] = useState("");
-  const [userRole, setUserRole] = useState(""); // Track user role (user/admin)
-  const [dropdownVisible, setDropdownVisible] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // Mobile menu state
-  const navigate = useNavigate();
+  // State variables to manage header behavior and user information
+  // useState hook is used for rendering the specific part of the component when the state changes
 
+  const [scroll, setScroll] = useState(false); // Track scroll position for header background change
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // Track login state
+  const [userName, setUserName] = useState(""); // Track user name
+  const [userRole, setUserRole] = useState(""); // Track user role (user/admin)
+  const [dropdownVisible, setDropdownVisible] = useState(false); // Dropdown visibility state
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // Mobile menu state
+  const navigate = useNavigate(); // useNavigate hook for navigation
+  
+  // Function to get cookie value by name , cookies are used to store user session information
   const getCookie = (name) => {
     return Cookies.get(name); // Using js-cookie to get cookies
   };
@@ -67,7 +71,7 @@ const Header = () => {
       setScroll(window.scrollY > 50);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll); // Add scroll event listener to change header background on scroll
 
     // Cleanup event listener on component unmount
     return () => {
@@ -84,10 +88,12 @@ const Header = () => {
     navigate("/user-landingpage");
   };
 
+  // Function to toggle dropdown visibility
   const toggleDropdown = () => {
     setDropdownVisible((prev) => !prev);
   };
-
+  
+  // Function to toggle mobile menu visibility and manage scroll behavior
   const toggleMenu = () => {
     setIsMenuOpen((prev) => !prev); // Toggle mobile menu
 

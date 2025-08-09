@@ -1,33 +1,58 @@
 const AdminModel = require("../models/admin");
 const bcrypt = require("bcrypt");
-const { otp } = require("./sendotpAdmin");
+const { adminOtpStorage } = require("./sendotpAdmin"); // Import storage, not OTP
 
 const verifyOtpA = async (req, res) => {
-  const { getotp, email, newPassword, confirmPassword } = req.body;
   try {
+    const { getotp, email, newPassword, confirmPassword } = req.body;
+    
     const user = await AdminModel.findOne({ email: email });
     if (!user) {
       return res.status(404).json({
-        msg: "User Not Found",
+        msg: "Admin Not Found",
       });
     }
 
-    console.log(otp);
-    console.log(getotp);
-    if (otp !== getotp) {
+    // ✅ Get OTP specific to this admin email
+    const storedData = adminOtpStorage[email];
+    
+    if (!storedData) {
       return res.status(400).json({
-        msg: "Invalid otp",
+        msg: "No OTP found or OTP has expired"
       });
     }
+
+    // ✅ Check if OTP has expired
+    if (Date.now() > storedData.expires) {
+      delete adminOtpStorage[email];
+      return res.status(400).json({
+        msg: "OTP has expired. Please request a new one."
+      });
+    }
+
+    console.log("Stored OTP:", storedData.otp);
+    console.log("Provided OTP:", getotp);
+    
+    // ✅ Verify OTP
+    if (storedData.otp !== getotp) {
+      return res.status(400).json({
+        msg: "Invalid OTP"
+      });
+    }
+
+    // ✅ OTP is correct, remove it and update password
+    delete adminOtpStorage[email];
+    
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(newPassword, salt);
     user.password = hashedPassword;
     await user.save();
 
     return res.status(200).json({
-      msg: "Password Updated Successfully",
+      msg: "Admin Password Updated Successfully",
       nextPage: true,
     });
+
   } catch (err) {
     console.log(err);
     return res.status(500).json({
@@ -35,4 +60,5 @@ const verifyOtpA = async (req, res) => {
     });
   }
 };
+
 module.exports = verifyOtpA;
