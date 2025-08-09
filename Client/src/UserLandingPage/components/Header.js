@@ -15,7 +15,7 @@ const Header = () => {
   const [dropdownVisible, setDropdownVisible] = useState(false); // Dropdown visibility state
   const [isMenuOpen, setIsMenuOpen] = useState(false); // Mobile menu state
   const navigate = useNavigate(); // useNavigate hook for navigation
-  
+
   // Function to get cookie value by name , cookies are used to store user session information
   const getCookie = (name) => {
     return Cookies.get(name); // Using js-cookie to get cookies
@@ -33,7 +33,7 @@ const Header = () => {
 
       // Make the API call to fetch user information based on the token
       const response = await axios.get(
-        "http://localhost:3002/user/user-profile",
+        "https://workwave-backend.onrender.com/user/user-profile",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -92,7 +92,7 @@ const Header = () => {
   const toggleDropdown = () => {
     setDropdownVisible((prev) => !prev);
   };
-  
+
   // Function to toggle mobile menu visibility and manage scroll behavior
   const toggleMenu = () => {
     setIsMenuOpen((prev) => !prev); // Toggle mobile menu

@@ -28,9 +28,12 @@ const LoginFormUser = () => {
     }
 
     try {
-      const response = await axios.post("http://localhost:3002/otp/sendOtp", {
-        email,
-      });
+      const response = await axios.post(
+        "https://workwave-backend.onrender.com/otp/sendOtp",
+        {
+          email,
+        }
+      );
       toast.success("OTP sent successfully!");
       navigate("/user-forgot-password", { state: { email } });
     } catch (error) {
@@ -48,7 +51,7 @@ const LoginFormUser = () => {
 
     try {
       const respo = await axios.post(
-        "http://localhost:3002/user/login",
+        "https://workwave-backend.onrender.com/user/login",
         formData,
         { withCredentials: true, credentials: "include" }
       );

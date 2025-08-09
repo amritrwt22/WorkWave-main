@@ -23,7 +23,7 @@ const Cards = () => {
   const fetchServices = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:3002/services/adminDashboard",
+        "https://workwave-backend.onrender.com/services/adminDashboard",
         {
           withCredentials: true,
         }
@@ -105,7 +105,7 @@ const Cards = () => {
       let response;
       if (editingService) {
         response = await axios.post(
-          `http://localhost:3002/services/update/${editingService._id}`,
+          `https://workwave-backend.onrender.com/services/update/${editingService._id}`,
           formData,
           {
             withCredentials: true,
@@ -114,7 +114,7 @@ const Cards = () => {
         toast.success("Service updated successfully!");
       } else {
         response = await axios.post(
-          "http://localhost:3002/services/addservice",
+          "https://workwave-backend.onrender.com/services/addservice",
           formData,
           {
             withCredentials: true,
@@ -138,7 +138,7 @@ const Cards = () => {
   const deleteService = async (id) => {
     try {
       const response = await axios.post(
-        `http://localhost:3002/services/delete/${id}`,
+        `https://workwave-backend.onrender.com/services/delete/${id}`,
         { withCredentials: true }
       );
       toast.success("Service deleted successfully!");

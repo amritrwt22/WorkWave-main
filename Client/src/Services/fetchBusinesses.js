@@ -3,7 +3,7 @@ import axios from "axios";
 export const fetchBusinesses = async () => {
   try {
     const response = await axios.get(
-      `http://localhost:3002/business/getBusiness`,
+      `https://workwave-backend.onrender.com/business/getBusiness`,
       {
         credentials: "include",
       }

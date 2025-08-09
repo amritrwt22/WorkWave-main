@@ -35,7 +35,7 @@ const FinalBusinessDetails = () => {
 
         // Fetch reviews
         const reviewsRes = await axios.get(
-          `http://localhost:3002/reviews/get/${id}`
+          `https://workwave-backend.onrender.com/reviews/get/${id}`
         );
         setReviews(reviewsRes.data);
       } catch (err) {
@@ -72,7 +72,7 @@ const FinalBusinessDetails = () => {
 
     try {
       const response = await axios.post(
-        `http://localhost:3002/reviews/add/${id}`,
+        `https://workwave-backend.onrender.com/reviews/add/${id}`,
         newReview
       );
       setReviews((prev) => [...prev, response.data.review]);

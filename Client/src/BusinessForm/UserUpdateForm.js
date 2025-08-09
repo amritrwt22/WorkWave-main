@@ -24,7 +24,7 @@ const UserUpdateForm = () => {
           .find((row) => row.startsWith("token"))
           .split("=")[1];
         const response = await axios.get(
-          "http://localhost:3002/user/user-profile",
+          "https://workwave-backend.onrender.com/user/user-profile",
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -114,7 +114,7 @@ const UserUpdateForm = () => {
         .find((row) => row.startsWith("token"))
         .split("=")[1];
       const response = await axios.post(
-        `http://localhost:3002/user/update-user/${userId}`,
+        `https://workwave-backend.onrender.com/user/update-user/${userId}`,
         formData,
         {
           headers: { Authorization: `Bearer ${token}` },

@@ -26,7 +26,7 @@ const Header = () => {
 
     try {
       const response = await axios.get(
-        "http://localhost:3002/admin/admin-profile",
+        "https://workwave-backend.onrender.com/admin/admin-profile",
         {
           headers: {
             Authorization: `Bearer ${token}`,

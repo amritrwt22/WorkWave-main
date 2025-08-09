@@ -8,7 +8,7 @@ import { useState, useEffect } from "react";
 const fetchServiceDetails = async (serviceId) => {
   try {
     const response = await fetch(
-      `http://localhost:3002/services/${serviceId}`,
+      `https://workwave-backend.onrender.com/services/${serviceId}`,
       {
         method: "GET",
         credentials: "include",
@@ -43,7 +43,7 @@ const Starter = () => {
       try {
         setIsLoading(true);
         const response = await fetch(
-          `http://localhost:3002/business/getBookings`,
+          `https://workwave-backend.onrender.com/business/getBookings`,
           {
             method: "GET",
             credentials: "include",

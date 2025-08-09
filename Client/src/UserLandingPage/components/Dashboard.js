@@ -35,11 +35,11 @@ const Dashboard = () => {
       try {
         setLoading(true);
         const userResponse = await axios.get(
-          "http://localhost:3002/usdashboard/user",
+          "https://workwave-backend.onrender.com/usdashboard/user",
           { withCredentials: true }
         );
         const bookingsResponse = await axios.get(
-          "http://localhost:3002/usdashboard/bookings",
+          "https://workwave-backend.onrender.com/usdashboard/bookings",
           { withCredentials: true }
         );
         setUserData(userResponse.data);
@@ -61,7 +61,7 @@ const Dashboard = () => {
       }
 
       const response = await axios.post(
-        "http://localhost:3002/orders",
+        "https://workwave-backend.onrender.com/orders",
         {
           amount: amount * 100,
           currency: "INR",
@@ -113,7 +113,7 @@ const Dashboard = () => {
       setBookings(updatedBookings);
 
       const response = await axios.put(
-        "http://localhost:3002/booking/updatePayment",
+        "https://workwave-backend.onrender.com/booking/updatePayment",
         {
           paymentId,
           bookingId,
